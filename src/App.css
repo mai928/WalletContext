@@ -1,0 +1,102 @@
+.App {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: #CAEEC2;
+  min-height: 1000px;
+}
+
+
+
+
+/* TransactionList */
+
+.Container {
+  margin: 100px 50px;
+  background-color: #E5F6DF;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.heading {
+  font-weight: 700;
+}
+
+.BalanceContainer {
+  display: flex;
+  margin-top: 40px;
+
+}
+
+.createBTN {
+  color: white;
+  background-color: #00ab41;
+  border: 1px solid #00ab41;
+  border-radius: 20px;
+  font-size: 16px;
+  width: 150px;
+  height: 40px;
+
+}
+
+.balance {
+  border: 1px solid rgb(240, 107, 59);
+  border-radius: 20px;
+  padding: 5px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 20px;
+
+
+}
+
+.ListWrapper {
+  text-align: center;
+  margin-top: 20px;
+  border: 2px solid whitesmoke;
+  border-radius: 20px;
+}
+
+
+/* Create */
+
+.FormConatiner {
+  text-align: center;
+  padding-top: 50px;
+  /* background-color: #E5F6DF;
+  border-radius: 20px;
+  width: 500px;
+  height: 500px;
+  margin: auto; */
+
+}
+
+.forms {
+  background-color: #E5F6DF;
+  border-radius: 20px;
+  width: 500px;
+  height: 230px;
+  margin: auto;
+}
+
+label {
+  font-size: 20px;
+  margin-right: 10px;
+  /* margin-top: 30px; */
+  width: 100px;
+
+}
+
+input,
+select {
+  border: 1px solid rgb(164, 156, 156);
+  border-radius: 10px;
+  padding: 5px 20px;
+
+}
+
+select {
+  width: 225px;
+}
