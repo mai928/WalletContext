@@ -38,7 +38,6 @@ const Create = () => {
 				name: "transaction" + parseInt(state.transaction.length + 1),
 				amount: amount,
 				type: type,
-				Balance: paramBalance.balance,
 				date: new Date().toLocaleDateString("en-CA"),
 			};
 
@@ -57,7 +56,6 @@ const Create = () => {
 					name: "transaction" + parseInt(state.transaction.length + 1),
 					amount: amount,
 					type: type,
-					Balance: paramBalance.balance,
 					date: new Date().toLocaleDateString("en-CA"),
 				};
 				addTransaction(newTransaction);
