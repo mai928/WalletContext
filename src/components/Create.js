@@ -1,21 +1,23 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ContextProvider } from "../Context/WalletContext";
-import { Table } from "react-bootstrap";
 
 const Create = () => {
+
+	//Add New Tranaction process
 	const { addTransaction, state } = useContext(ContextProvider);
 	const navigate = useNavigate();
 	let [amount, setAmount] = useState("");
-
 	const optionType = ["add fund", "withDraw"];
 	const [type, setType] = useState(optionType[0]);
+	const [message, setMessage] = useState("");
+
 
 	const paramBalance = useParams();
-	const [message, setMessage] = useState("");
 
 	const handleSubmit = () => {
 		if (amount > 0) {
+               //Gamification Feature
 			if (Number(amount) === 100 && type === "add fund") {
 				amount = parseInt(amount) + 5;
 			} else if (Number(amount) === 500 && type === "add fund") {

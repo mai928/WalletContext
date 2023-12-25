@@ -7,15 +7,13 @@ const Edit = () => {
 	const navigate = useNavigate();
 	const param = useParams();
 
+	let [amount, setAmount] = useState("");
 	let [type, setType] = useState(null);
-
 	const [id, setID] = useState(null);
 	const [name, setName] = useState(null);
 	const [date, setDate] = useState(null);
-
 	const [message, setMessage] = useState("");
 
-	let [amount, setAmount] = useState("");
 
 	const data = state.transaction;
 
@@ -28,6 +26,8 @@ const Edit = () => {
 		setName(SelectedTransaction.name);
 		setDate(SelectedTransaction.date);
 	}, [param, data]);
+
+	
 
 	const OnEdit = () => {
 		if (amount > 0) {

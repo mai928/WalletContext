@@ -7,7 +7,6 @@ const TransactionsList = () => {
 	const { state, DeleteTransaction } = useContext(ContextProvider);
 	let navigate = useNavigate();
 
-	console.log(state);
 	let Balance = state.transaction?.map((item) => Number(item.amount));
 
 	Balance = Balance?.reduce((acc, cur) => acc + cur,0);
@@ -20,6 +19,7 @@ const TransactionsList = () => {
 		navigate(`/edit/${id}/${Balance}`);
 	};
 
+	// Save Data of Transactions in local Storage
 	localStorage.setItem("transactions", JSON.stringify(state.transaction));
 	localStorage.setItem("Balance", JSON.stringify(Balance));
 
