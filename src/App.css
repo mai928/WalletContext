@@ -41,6 +41,17 @@
 
 }
 
+.createBTNDisabled {
+  color: white;
+  background-color: #CAEEC2;
+  border: 1px solid #CAEEC2;
+  border-radius: 20px;
+  font-size: 16px;
+  width: 150px;
+  height: 40px;
+
+}
+
 .balance {
   border: 1px solid rgb(240, 107, 59);
   border-radius: 20px;

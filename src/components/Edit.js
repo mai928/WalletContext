@@ -13,9 +13,16 @@ const Edit = () => {
 	const [name, setName] = useState(null);
 	const [date, setDate] = useState(null);
 	const [message, setMessage] = useState("");
+	const [diable, setDisable] = useState(false);
 
 
 	const data = state.transaction;
+
+	const GoHome = () => {
+		setTimeout(() => {
+			navigate("/");
+		}, 2000);
+	};
 
 	useEffect(() => {
 		const id = param.id;
@@ -67,10 +74,14 @@ const Edit = () => {
 				EditTransaction(newData);
 				navigate("/");
 			} else {
+				setDisable(true)
 				setMessage("your balance is inEfficient");
+				GoHome()
 			}
 		} else {
+			setDisable(true)
 			setMessage("please enter positive number");
+			GoHome()
 		}
 
 	};
@@ -98,7 +109,7 @@ const Edit = () => {
 				</p>
 				<button
 					style={{ marginTop: "10px" }}
-					className="createBTN"
+					className={diable ? "createBTNDisabled" : "createBTN"}
 					type="submit"
 					onClick={OnEdit}
 				>

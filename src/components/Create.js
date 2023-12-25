@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ContextProvider } from "../Context/WalletContext";
 
 const Create = () => {
-
 	//Add New Tranaction process
 	const { addTransaction, state } = useContext(ContextProvider);
 	const navigate = useNavigate();
@@ -11,13 +10,19 @@ const Create = () => {
 	const optionType = ["add fund", "withDraw"];
 	const [type, setType] = useState(optionType[0]);
 	const [message, setMessage] = useState("");
-
+	const [diable, setDisable] = useState(false);
 
 	const paramBalance = useParams();
 
+	const GoHome = () => {
+		setTimeout(() => {
+			navigate("/");
+		}, 3000);
+	};
+
 	const handleSubmit = () => {
 		if (amount > 0) {
-               //Gamification Feature
+			//Gamification Feature
 			if (Number(amount) === 100 && type === "add fund") {
 				amount = parseInt(amount) + 5;
 			} else if (Number(amount) === 500 && type === "add fund") {
@@ -30,7 +35,7 @@ const Create = () => {
 
 			const newTransaction = {
 				id: Math.floor(Math.random() * 999),
-				name: "transaction" + parseInt(state.transaction.length+1),
+				name: "transaction" + parseInt(state.transaction.length + 1),
 				amount: amount,
 				type: type,
 				Balance: paramBalance.balance,
@@ -39,8 +44,8 @@ const Create = () => {
 
 			if (type === "add fund") {
 				amount = Number(+amount);
-
 				addTransaction(newTransaction);
+
 				navigate("/");
 			} else if (
 				type === "withDraw" &&
@@ -49,7 +54,7 @@ const Create = () => {
 				amount = Number(-amount);
 				const newTransaction = {
 					id: Math.floor(Math.random() * 999),
-					name: "transaction" + parseInt(state.transaction.length+1),
+					name: "transaction" + parseInt(state.transaction.length + 1),
 					amount: amount,
 					type: type,
 					Balance: paramBalance.balance,
@@ -58,16 +63,22 @@ const Create = () => {
 				addTransaction(newTransaction);
 				navigate("/");
 			} else {
+				setDisable(true);
 				setMessage("your balance is inEfficient");
+				GoHome();
 			}
 		} else {
+			setDisable(true);
 			setMessage("please enter positive number");
+			GoHome();
 		}
 	};
 
 	return (
 		<div className="FormConatiner">
-			<div style={{ color: "rgb(240, 107, 59)",marginBottom:'10px' }}>{message}</div>
+			<div style={{ color: "rgb(240, 107, 59)", marginBottom: "10px" }}>
+				{message}
+			</div>
 
 			<div className="forms">
 				<div>
@@ -92,7 +103,7 @@ const Create = () => {
 				</div>
 				<button
 					style={{ marginTop: "40px" }}
-					className="createBTN"
+					className={diable ? "createBTNDisabled" : "createBTN"}
 					onClick={handleSubmit}
 					type="submit"
 				>

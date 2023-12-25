@@ -1,7 +1,6 @@
 export const WalletReducer = (state, action) => {
 	switch (action.type) {
 		case "add_transcation": {
-			console.log(state.transaction);
 			return {
 				...state,
 				transaction: [...state.transaction, action.payload],
@@ -24,7 +23,7 @@ export const WalletReducer = (state, action) => {
 			const Deleted = state.transaction.filter((item) => {
 				return item.id !== action.payload;
 			});
-             console.log(action.payload);
+			console.log(action.payload);
 			return { ...state, transaction: Deleted };
 		}
 		default: {
