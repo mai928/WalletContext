@@ -23,7 +23,6 @@ export const WalletReducer = (state, action) => {
 			const Deleted = state.transaction.filter((item) => {
 				return item.id !== action.payload;
 			});
-			console.log(action.payload);
 			return { ...state, transaction: Deleted };
 		}
 		default: {
